@@ -4,6 +4,20 @@
 
 package frc.robot.constants;
 
-/** Add your docs here. */
+import com.ctre.phoenix6.configs.TalonFXConfiguration;
+import com.ctre.phoenix6.signals.InvertedValue;
+import com.ctre.phoenix6.signals.NeutralModeValue;
+
 public class ConstRotors {
+  public static TalonFXConfiguration BALL_SHOOTER_CONFIG = new TalonFXConfiguration();
+
+  static {
+    BALL_SHOOTER_CONFIG.MotorOutput.NeutralMode = NeutralModeValue.Brake;
+    BALL_SHOOTER_CONFIG.CurrentLimits.SupplyCurrentLimitEnable = true;
+    BALL_SHOOTER_CONFIG.CurrentLimits.SupplyCurrentLimit = 85; // TODO: tune current limits
+    BALL_SHOOTER_CONFIG.CurrentLimits.SupplyCurrentLowerLimit = 60; // TODO: tune current limits
+    BALL_SHOOTER_CONFIG.MotorOutput.Inverted = InvertedValue.Clockwise_Positive;
+  }
+
+  public static final double BALL_SHOOTER_SPEED = 0.2; // TODO: Replace with actual speed
 }

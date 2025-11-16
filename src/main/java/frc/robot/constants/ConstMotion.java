@@ -41,21 +41,6 @@ public class ConstMotion {
     TURRET_CONFIG.CurrentLimits.SupplyCurrentLowerLimit = 30; // TODO: tune current limits
     TURRET_CONFIG.CurrentLimits.SupplyCurrentLimit = 60; // TODO: tune current limits
     TURRET_CONFIG.CurrentLimits.SupplyCurrentLowerTime = 1;
-
-    // elevator pivot motor config
-    TURRET_CONFIG.MotorOutput.NeutralMode = NeutralModeValue.Brake;
-    TURRET_CONFIG.MotorOutput.Inverted = InvertedValue.CounterClockwise_Positive;
-
-    TURRET_CONFIG.SoftwareLimitSwitch.ForwardSoftLimitEnable = true;
-    TURRET_CONFIG.SoftwareLimitSwitch.ForwardSoftLimitThreshold = Units.Rotations.of(0)
-        .in(Units.Degrees);
-    TURRET_CONFIG.SoftwareLimitSwitch.ReverseSoftLimitEnable = true;
-    TURRET_CONFIG.SoftwareLimitSwitch.ReverseSoftLimitThreshold = Units.Rotations.of(0)
-        .in(Units.Degrees);
-
-    TURRET_CONFIG.SoftwareLimitSwitch.ReverseSoftLimitEnable = true;
-    TURRET_CONFIG.SoftwareLimitSwitch.ReverseSoftLimitThreshold = Units.Rotations.of(0)
-        .in(Units.Degrees);
   }
 
   public static TalonFXConfiguration HOOD_CONFIG = new TalonFXConfiguration();

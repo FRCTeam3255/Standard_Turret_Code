@@ -33,6 +33,9 @@ public class Motion extends SubsystemBase {
   public Motion() {
     turretMotor = new TalonFX(mapMotion.TURRET_PIVOT_CAN);
     hoodMotor = new TalonFX(mapMotion.HOOD_CAN);
+
+    turretMotor.getConfigurator().apply(ConstMotion.TURRET_CONFIG);
+    hoodMotor.getConfigurator().apply(ConstMotion.HOOD_CONFIG);
   }
 
   private void setHoodAngle(Angle angle, int slot) {

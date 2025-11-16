@@ -85,14 +85,6 @@ public class ConstMotion {
     HOOD_CONFIG.CurrentLimits.SupplyCurrentLowerLimit = 30; // TODO: tune current limits
     HOOD_CONFIG.CurrentLimits.SupplyCurrentLimit = 60; // TODO: tune current limits
     HOOD_CONFIG.CurrentLimits.SupplyCurrentLowerTime = 1;
-
-    // elevator pivot motor config
-    HOOD_CONFIG.MotorOutput.NeutralMode = NeutralModeValue.Brake;
-    HOOD_CONFIG.MotorOutput.Inverted = InvertedValue.CounterClockwise_Positive;
-
-    HOOD_CONFIG.SoftwareLimitSwitch.ForwardSoftLimitEnable = true;
-    HOOD_CONFIG.SoftwareLimitSwitch.ForwardSoftLimitThreshold = Units.Rotations.of(0)
-        .in(Units.Degrees);
   }
 
   public static final double POSITION_TOLERANCE = Units.Degrees.of(1).in(Units.Rotations);

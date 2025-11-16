@@ -32,7 +32,7 @@ public class ConstMotion {
     TURRET_CONFIG.Slot0.kS = 0;
     TURRET_CONFIG.Slot0.kG = 0;
 
-    TURRET_CONFIG.Feedback.SensorToMechanismRatio = (0); // TODO: replace with actual ratio
+    TURRET_CONFIG.Feedback.SensorToMechanismRatio = 0; // TODO: replace with actual ratio
     TURRET_CONFIG.MotionMagic.MotionMagicCruiseVelocity = 0;
     TURRET_CONFIG.MotionMagic.MotionMagicAcceleration = 0;
     TURRET_CONFIG.MotionMagic.MotionMagicExpo_kV = 0;
@@ -46,7 +46,7 @@ public class ConstMotion {
   public static TalonFXConfiguration HOOD_CONFIG = new TalonFXConfiguration();
 
   static {
-    // elevator motor config
+    // Hood motor config
     // TODO: tune pid values
     HOOD_CONFIG.MotorOutput.NeutralMode = NeutralModeValue.Brake;
     HOOD_CONFIG.MotorOutput.Inverted = InvertedValue.CounterClockwise_Positive;
@@ -61,7 +61,7 @@ public class ConstMotion {
     HOOD_CONFIG.Slot0.kS = 0;
     HOOD_CONFIG.Slot0.kG = 0;
 
-    HOOD_CONFIG.Feedback.SensorToMechanismRatio = (0); // TODO: replace with actual ratio
+    HOOD_CONFIG.Feedback.SensorToMechanismRatio = 0; // TODO: replace with actual ratio
     HOOD_CONFIG.MotionMagic.MotionMagicCruiseVelocity = 0;
     HOOD_CONFIG.MotionMagic.MotionMagicAcceleration = 0;
     HOOD_CONFIG.MotionMagic.MotionMagicExpo_kV = 0;
@@ -77,5 +77,10 @@ public class ConstMotion {
   public static class MechanismPositionGroup {
     public Angle turretPivotMotorAngle;
     public Angle hoodMotorAngle;
+
+    public MechanismPositionGroup(Angle turretPivotMotorAngle, Angle hoodMotorAngle) {
+      this.turretPivotMotorAngle = turretPivotMotorAngle;
+      this.hoodMotorAngle = hoodMotorAngle;
+    }
   }
 }

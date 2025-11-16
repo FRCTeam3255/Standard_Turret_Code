@@ -38,12 +38,12 @@ public class Motion extends SubsystemBase {
     hoodMotor.getConfigurator().apply(ConstMotion.HOOD_CONFIG);
   }
 
-  private void setHoodAngle(Angle angle, int slot) {
+  public void setHoodAngle(Angle angle, int slot) {
     hoodMotor.setControl(positionRequest.withPosition(angle).withSlot(slot));
     hoodLastDesiredAngle = angle;
   }
 
-  private final void setTurretAngle(Angle angle, int slot) {
+  public final void setTurretAngle(Angle angle, int slot) {
     turretMotor.setControl(positionRequest.withPosition(angle).withSlot(slot));
     turretLastDesiredAngle = angle;
   }

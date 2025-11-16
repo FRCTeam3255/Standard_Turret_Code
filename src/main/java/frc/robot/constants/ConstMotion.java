@@ -22,9 +22,9 @@ public class ConstMotion {
     TURRET_CONFIG.MotorOutput.NeutralMode = NeutralModeValue.Brake;
     TURRET_CONFIG.MotorOutput.Inverted = InvertedValue.CounterClockwise_Positive;
     TURRET_CONFIG.SoftwareLimitSwitch.ForwardSoftLimitEnable = true;
-    TURRET_CONFIG.SoftwareLimitSwitch.ForwardSoftLimitThreshold = Units.Rotations.of(60).in(Units.Rotations);
+    TURRET_CONFIG.SoftwareLimitSwitch.ForwardSoftLimitThreshold = Units.Degrees.of(60).in(Units.Rotations);
     TURRET_CONFIG.SoftwareLimitSwitch.ReverseSoftLimitEnable = true;
-    TURRET_CONFIG.SoftwareLimitSwitch.ReverseSoftLimitThreshold = Units.Rotations.of(0).in(Units.Rotations);
+    TURRET_CONFIG.SoftwareLimitSwitch.ReverseSoftLimitThreshold = Units.Degrees.of(0).in(Units.Rotations);
     TURRET_CONFIG.Slot0.GravityType = GravityTypeValue.Elevator_Static;
     TURRET_CONFIG.Slot0.kP = 0;
     TURRET_CONFIG.Slot0.kI = 0;
@@ -51,9 +51,9 @@ public class ConstMotion {
     HOOD_CONFIG.MotorOutput.NeutralMode = NeutralModeValue.Brake;
     HOOD_CONFIG.MotorOutput.Inverted = InvertedValue.CounterClockwise_Positive;
     HOOD_CONFIG.SoftwareLimitSwitch.ForwardSoftLimitEnable = true;
-    HOOD_CONFIG.SoftwareLimitSwitch.ForwardSoftLimitThreshold = Units.Rotations.of(60).in(Units.Rotations);
+    HOOD_CONFIG.SoftwareLimitSwitch.ForwardSoftLimitThreshold = Units.Degrees.of(60).in(Units.Rotations);
     HOOD_CONFIG.SoftwareLimitSwitch.ReverseSoftLimitEnable = true;
-    HOOD_CONFIG.SoftwareLimitSwitch.ReverseSoftLimitThreshold = Units.Rotations.of(0).in(Units.Rotations);
+    HOOD_CONFIG.SoftwareLimitSwitch.ReverseSoftLimitThreshold = Units.Degrees.of(0).in(Units.Rotations);
     HOOD_CONFIG.Slot0.GravityType = GravityTypeValue.Elevator_Static;
     HOOD_CONFIG.Slot0.kP = 0;
     HOOD_CONFIG.Slot0.kI = 0;

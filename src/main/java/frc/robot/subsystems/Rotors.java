@@ -4,11 +4,37 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import com.ctre.phoenix6.hardware.TalonFX;
 
+import edu.wpi.first.epilogue.Logged;
+import edu.wpi.first.units.Units;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.RobotMap.mapRotors;
+import frc.robot.constants.*;
+
+@Logged
 public class Rotors extends SubsystemBase {
   /** Creates a new Rotors. */
-  public Rotors() {}
+
+  TalonFX ballShooterMotor;
+
+  public Rotors() {
+    ballShooterMotor = new TalonFX(mapRotors.BALL_SHOOTER_CAN);
+
+    ballShooterMotor.getConfigurator().apply(ConstRotors.BALL_SHOOTER_CONFIG);
+  }
+
+  public void setBallShooterMotorSpeed(double speed) {
+    ballShooterMotor.set(speed);
+  }
+
+  public double getBallShooterMotorVelocity() {
+    return ballShooterMotor.getRotorVelocity().getValue().in(Units.RPM);
+  }
+
+  public void stopBallShooterMotor() {
+    ballShooterMotor.set(0);
+  }
 
   @Override
   public void periodic() {

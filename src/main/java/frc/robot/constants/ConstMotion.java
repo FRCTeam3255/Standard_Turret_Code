@@ -17,7 +17,7 @@ public class ConstMotion {
   public static TalonFXConfiguration TURRET_CONFIG = new TalonFXConfiguration();
 
   static {
-    // elevator motor config
+    // turret motor config
     // TODO: tune pid values
     TURRET_CONFIG.MotorOutput.NeutralMode = NeutralModeValue.Brake;
     TURRET_CONFIG.MotorOutput.Inverted = InvertedValue.CounterClockwise_Positive;

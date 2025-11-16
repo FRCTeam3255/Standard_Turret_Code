@@ -23,26 +23,26 @@ import frc.robot.RobotMap.*;
 @Logged
 public class Motion extends SubsystemBase {
   /** Creates a new Motion. */
-  TalonFX turretPivotMotor;
+  TalonFX turretMotor;
   TalonFX hoodMotor;
 
-  private Angle turretPivotLastDesiredAngle = Degrees.zero();
+  private Angle turretLastDesiredAngle = Degrees.zero();
   private Angle hoodLastDesiredAngle = Degrees.zero();
   MotionMagicExpoVoltage positionRequest = new MotionMagicExpoVoltage(0);
 
   public Motion() {
-    turretPivotMotor = new TalonFX(mapMotion.TURRET_PIVOT_CAN);
+    turretMotor = new TalonFX(mapMotion.TURRET_PIVOT_CAN);
     hoodMotor = new TalonFX(mapMotion.HOOD_CAN);
   }
 
-  private void setHoodPivotAngle(Angle angle, int slot) {
+  private void setHoodAngle(Angle angle, int slot) {
     hoodMotor.setControl(positionRequest.withPosition(angle).withSlot(slot));
     hoodLastDesiredAngle = angle;
   }
 
-  private final void setTurretPivotAngle(Angle angle, int slot) {
-    turretPivotMotor.setControl(positionRequest.withPosition(angle).withSlot(slot));
-    turretPivotLastDesiredAngle = angle;
+  private final void setTurretAngle(Angle angle, int slot) {
+    turretMotor.setControl(positionRequest.withPosition(angle).withSlot(slot));
+    turretLastDesiredAngle = angle;
   }
 
   public void setHoodCoastMode(boolean coastMode) {
@@ -57,11 +57,11 @@ public class Motion extends SubsystemBase {
 
   public void setTurretCoastMode(boolean coastMode) {
     if (coastMode) {
-      ConstMotion.TURRET_PIVOT_CONFIG.MotorOutput.NeutralMode = NeutralModeValue.Coast;
-      turretPivotMotor.getConfigurator().apply(ConstMotion.TURRET_PIVOT_CONFIG);
+      ConstMotion.TURRET_CONFIG.MotorOutput.NeutralMode = NeutralModeValue.Coast;
+      turretMotor.getConfigurator().apply(ConstMotion.TURRET_CONFIG);
     } else {
-      ConstMotion.TURRET_PIVOT_CONFIG.MotorOutput.NeutralMode = NeutralModeValue.Brake;
-      turretPivotMotor.getConfigurator().apply(ConstMotion.TURRET_PIVOT_CONFIG);
+      ConstMotion.TURRET_CONFIG.MotorOutput.NeutralMode = NeutralModeValue.Brake;
+      turretMotor.getConfigurator().apply(ConstMotion.TURRET_CONFIG);
     }
   }
 
@@ -74,13 +74,13 @@ public class Motion extends SubsystemBase {
 
   public Angle getTurretPivotAngle() {
     if (Robot.isSimulation()) {
-      return turretPivotLastDesiredAngle;
+      return turretLastDesiredAngle;
     }
-    return turretPivotMotor.getPosition().getValue();
+    return turretMotor.getPosition().getValue();
   }
 
   public AngularVelocity getTurretPivotVelocity() {
-    return turretPivotMotor.getRotorVelocity().getValue();
+    return turretMotor.getRotorVelocity().getValue();
   }
 
   public AngularVelocity getHoodVelocity() {

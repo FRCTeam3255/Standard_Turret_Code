@@ -28,7 +28,7 @@ public class Rotors extends SubsystemBase {
     ballShooterMotor.set(speed);
   }
 
-  public double getBallShooterMotorSpeed() {
+  public double getBallShooterMotorVelocity() {
     return ballShooterMotor.getRotorVelocity().getValue().in(Units.RPM);
   }
 

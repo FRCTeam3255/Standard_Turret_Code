@@ -23,22 +23,19 @@ import frc.robot.RobotMap.*;
 @Logged
 public class Motion extends SubsystemBase {
   /** Creates a new Motion. */
-  TalonFX turretMotor;
-  TalonFX hoodMotor;
+  final TalonFX turretMotor = new TalonFX(mapMotion.TURRET_PIVOT_CAN);
+  TalonFX hoodMotor = new TalonFX(mapMotion.HOOD_CAN);
 
   private Angle turretLastDesiredAngle = Degrees.zero();
   private Angle hoodLastDesiredAngle = Degrees.zero();
   MotionMagicExpoVoltage positionRequest = new MotionMagicExpoVoltage(0);
 
   public Motion() {
-    turretMotor = new TalonFX(mapMotion.TURRET_PIVOT_CAN);
-    hoodMotor = new TalonFX(mapMotion.HOOD_CAN);
-
     turretMotor.getConfigurator().apply(ConstMotion.TURRET_CONFIG);
     hoodMotor.getConfigurator().apply(ConstMotion.HOOD_CONFIG);
   }
 
-  public void setHoodAngle(Angle angle, int slot) {
+  public final void setHoodAngle(Angle angle, int slot) {
     hoodMotor.setControl(positionRequest.withPosition(angle).withSlot(slot));
     hoodLastDesiredAngle = angle;
   }

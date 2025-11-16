@@ -77,10 +77,5 @@ public class ConstMotion {
   public static class MechanismPositionGroup {
     public Angle turretPivotMotorAngle;
     public Angle hoodMotorAngle;
-
-    public MechanismPositionGroup(Angle turretPivotMotorAngle, Angle hoodMotorAngle) {
-      this.turretPivotMotorAngle = turretPivotMotorAngle;
-      this.hoodMotorAngle = hoodMotorAngle;
-    }
   }
 }

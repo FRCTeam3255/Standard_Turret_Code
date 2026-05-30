@@ -4,6 +4,7 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix6.controls.MotionMagicVelocityVoltage;
 import com.ctre.phoenix6.hardware.TalonFX;
 
 import edu.wpi.first.epilogue.Logged;
@@ -17,6 +18,7 @@ public class Rotors extends SubsystemBase {
   /** Creates a new Rotors. */
 
   TalonFX ballShooterMotor;
+  final MotionMagicVelocityVoltage flywheelVelocityRequest = new MotionMagicVelocityVoltage(0);
 
   public Rotors() {
     ballShooterMotor = new TalonFX(mapRotors.BALL_SHOOTER_CAN);
@@ -25,7 +27,7 @@ public class Rotors extends SubsystemBase {
   }
 
   public void setBallShooterMotorSpeed(double speed) {
-    ballShooterMotor.set(speed);
+    ballShooterMotor.setControl(flywheelVelocityRequest.withVelocity(speed));
   }
 
   public double getBallShooterMotorVelocity() {
